@@ -4,6 +4,7 @@ import Menu from '../../components/index';
 import LinkItem from '../../components/LinkItem';
 import './Home.css';
 import api from '../../services/api';
+import { saveLink } from '../../services/storeLink';
 
 function Home() {
     const [link, setLink] = useState('');
@@ -18,6 +19,7 @@ function Home() {
 
             setData(response.data);
             setShowModal(true);
+            saveLink('@encurtarLink', response.data);
             setLink('');
         } catch {
             alert('Deu error');
